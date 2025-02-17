@@ -1,0 +1,27 @@
+button.RowAction__btn {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    min-width: auto !important;
+    color: #26242b;
+}
+
+.RowAction__menu {
+    inset: -7px 18px auto auto !important;
+
+    .RowAction__menu-list {
+        padding: 4px;
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+    }
+
+    .MuiMenuItem-gutters {
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

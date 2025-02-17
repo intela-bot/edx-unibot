@@ -1,0 +1,35 @@
+.MessageItem {
+    padding: 8px 17px;
+    color: $black-100;
+    border-radius: 8px;
+    background: $primary-blue;
+    max-width: 1000px;
+}
+
+.MessageItem__title {
+    font: 700 16px/22px $font-primary;
+    margin: 0 0 20px;
+}
+
+.MessageItem__content {
+    font: 400 16px/24px $font-primary;
+
+    p {
+        margin: 0;
+    }
+
+    ul,
+    ol {
+        padding-left: 24px;
+    }
+
+    ul:not(:first-child),
+    ol:not(:first-child) {
+        margin-top: 25px;
+    }
+
+    ul:not(:last-child),
+    ol:not(:last-child) {
+        margin-bottom: 25px;
+    }
+}

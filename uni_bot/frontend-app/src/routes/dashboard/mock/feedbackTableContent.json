@@ -1,0 +1,72 @@
+[
+  {
+    "startTime": "2023-10-15 14:44 UTC",
+    "answers": 2,
+    "rating": 3,
+    "feedbacks": true,
+    "endTime": "2023-11-15 14:44 UTC"
+  },
+  {
+    "startTime": "2023-10-15 14:44 UTC",
+    "answers": 2,
+    "rating": 0,
+    "feedbacks": false,
+    "endTime": "2023-11-15 14:44 UTC"
+  },
+  {
+    "startTime": "2023-10-15 14:44 UTC",
+    "answers": 4,
+    "rating": 3,
+    "feedbacks": true,
+    "endTime": "2023-11-15 14:44 UTC"
+  },
+  {
+    "startTime": "2023-10-15 14:44 UTC",
+    "answers": 5,
+    "rating": 5,
+    "feedbacks": true,
+    "endTime": "2023-11-15 14:44 UTC"
+  },
+  {
+    "startTime": "2023-10-15 14:44 UTC",
+    "answers": 1,
+    "rating": 3,
+    "feedbacks": false,
+    "endTime": "2023-11-15 14:44 UTC"
+  },
+  {
+    "startTime": "2023-10-15 14:44 UTC",
+    "answers": 3,
+    "rating": 3,
+    "feedbacks": true,
+    "endTime": "2023-11-15 14:44 UTC"
+  },
+  {
+    "startTime": "2023-10-15 14:44 UTC",
+    "answers": 2,
+    "rating": 3,
+    "feedbacks": true,
+    "endTime": "2023-11-15 14:44 UTC"
+  },
+  {
+    "startTime": "2023-10-15 14:44 UTC",
+    "answers": 2,
+    "rating": 3,
+    "feedbacks": true,
+    "endTime": "2023-11-15 14:44 UTC"
+  },
+  {
+    "startTime": "2023-10-15 14:44 UTC",
+    "answers": 2,
+    "rating": 3,
+    "feedbacks": false,
+    "endTime": "2023-11-15 14:44 UTC"
+  },
+  {
+    "startTime": "2023-10-15 14:44 UTC",
+    "answers": 2,
+    "rating": 3,
+    "feedbacks": true,
+    "endTime": "2023-11-15 14:44 UTC"
+  }
+]

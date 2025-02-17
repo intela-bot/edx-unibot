@@ -1,0 +1,18 @@
+.ScanningStatus {
+    max-width: 564px;
+    border-radius: 8px;
+    padding: 10px 30px 10px 10px;
+    background: rgba(#ee5048, 0.1);
+    position: relative;
+    min-height: 44px;
+    font: 400 16px/22px $font-primary;
+    letter-spacing: 0.2px;
+    margin-top: 16px;
+
+    .ScanningStatus__link:not(.btn),
+    .ScanningStatus__link:not(.btn):visited,
+    .ScanningStatus__link:not(.btn):hover,
+    .ScanningStatus__link:not(.btn):active {
+        color: $primary-accent;
+    }
+}

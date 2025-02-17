@@ -1,0 +1,107 @@
+.InfoSection {
+    display: flex;
+    margin-bottom: $margin-bottom-medium;
+
+    .Introduction__img {
+        width: $size-medium;
+        height: $size-medium;
+    }
+
+    .InfoSection__InputWrapper {
+        flex: 1 1 auto;
+        display: flex;
+        padding-top: 23px;
+
+        .InfoSection__Input {
+            flex: 1 1 auto;
+
+            &:not(:last-child) {
+                margin-right: 43px;
+            }
+
+            .MuiFormControl-root {
+                display: flex;
+                flex-direction: column;
+
+                .MuiFormHelperText-root {
+                    min-height: $margin-bottom-medium;
+                }
+            }
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .InfoSection__InputWrapper {
+            flex-direction: column;
+            width: 100%;
+
+            .InfoSection__Input {
+                &:not(:last-child) {
+                    margin-right: 0;
+                    margin-bottom: $margin-bottom-small;
+                }
+            }
+        }
+    }
+}
+
+.AvatarUpload {
+    margin-right: 48px;
+
+    @include media-breakpoint-down(md) {
+        margin-right: 0;
+        margin-bottom: $margin-bottom-small;
+    }
+
+    .StyledAvatarUpload {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+
+        @media (hover: hover) {
+            &:hover .PenIconWrapper {
+                opacity: 1;
+            }
+
+            &:hover .BorderWrapper {
+                border-color: $primary;
+                z-index: 1;
+            }
+        }
+    }
+
+    .PenIconWrapper {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $white-40;
+        opacity: 0;
+        transition: opacity $transition-duration;
+
+        svg {
+            color: $primary;
+        }
+    }
+
+    .AvatarWrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .BorderWrapper {
+        position: absolute;
+        inset: 0;
+        border: 2px solid transparent;
+        border-radius: 50%;
+        box-sizing: border-box;
+        pointer-events: none;
+        transition: border-color $transition-duration;
+    }
+}

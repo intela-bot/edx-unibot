@@ -1,0 +1,16 @@
+.CompleteProgress {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    gap: 18px;
+}
+
+.CompleteProgress__bar {
+    flex-grow: 1;
+}
+
+.CompleteProgress__text {
+    color: $primary-accent;
+    flex-shrink: 0;
+    font: 400 14px/24px $font-primary;
+}

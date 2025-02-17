@@ -1,0 +1,24 @@
+.ConfirmationModalForm {
+    margin-top: 20px;
+
+    &.loading {
+        text-align: center;
+    }
+}
+
+.ConfirmationModalFormField {
+    display: block !important;
+
+    &:not(:last-child) {
+        margin-bottom: 35px;
+    }
+}
+
+.ConfirmationModalFormError {
+    border-radius: 4px;
+    padding: 10px;
+    background: rgba(#ee5048, 0.1);
+    font: 400 16px/22px $font-primary;
+    margin-top: -20px;
+    margin-bottom: 40px;
+}

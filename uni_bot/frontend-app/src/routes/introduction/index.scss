@@ -1,0 +1,18 @@
+@import "./components/MessageItem/MessageItem";
+
+.IntroductionContent {
+    .IntroductionContent__heading {
+        margin-bottom: 32px;
+    }
+
+    .IntroductionContentWrapper {
+        display: flex;
+        gap: 11px;
+    }
+
+    .MessagesWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+    }
+}

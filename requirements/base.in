@@ -1,0 +1,18 @@
+# Main requirements of your plugin application.
+-c constraints.txt
+
+Django
+XBlock
+beautifulsoup4
+celery
+django-config-models
+django-countries
+djangorestframework
+edx-drf-extensions
+edx-opaque-keys
+edxval
+fs
+jsonfield
+openedx-events
+path
+requests

@@ -1,0 +1,445 @@
+openapi: 3.0.0
+info:
+  title: LMS endpoints
+  description: Documentation that describes LMS API endpoints.
+  version: 1.0.0
+servers:
+  - url: 'http://local.edly.io:8000/'
+paths:
+  /api/courses/v1/course_ids/:
+    get:
+      operationId: courses_v1_course_ids_list
+      summary: 'Enlists the courses the user can access'
+      description: |-
+        Request a list of course IDs for all courses the specified user can
+            access based on the provided parameters.
+      tags:
+        - courses
+      security:
+        - bearerAuth: []
+        - jwtAuth: []
+      parameters:
+        - name: page
+          in: query
+          description: A page number within the paginated result set.
+          required: false
+          schema:
+            type: integer
+        - name: page_size
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: username
+          in: query
+          description: The username of the specified user whose visible courses we want to see.
+          required: true
+          schema:
+            type: string
+        - name: role
+          in: query
+          description: |-
+            Course ids are filtered such that only those for which the user has the specified 
+            role are returned.
+          required: true
+          schema:
+            type: string
+            enum:
+              - staff
+              - instructor
+      responses:
+        '200':
+          description: |-
+            Indicates that a list of course ids and pagination details are provided
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    x-nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    x-nullable: true
+                  results:
+                    type: array
+                    items:
+                      type: string
+                example:
+                  results:
+                    - course-v1:edX+DemoX+Demo_Course
+                    - course-v1:Intela+Math+2022
+                  pagination:
+                    previous: null
+                    num_pages: 1
+                    next: null
+                    count: 2
+        '400':
+          description: |-
+            Indicates that an invalid parameter was sent or the username was not provided
+          content:
+            application/json:
+              schema:
+                required:
+                  - field_errors
+                type: object
+                properties:
+                  field_errors:
+                    type: object
+                example:
+                  field_errors:
+                    role:
+                      developer_message: This field is required.
+        '403':
+          description: |-
+            Indicates that a user who does not have permission to masquerade as another 
+            user who specifies a username other than their own.
+        '404':
+          description: |-
+            Indicates that he specified user does not exist, or the requesting user does 
+            not have permission to view their courses.
+          content:
+            application/json:
+              schema:
+                required:
+                  - developer_message
+                type: object
+                properties:
+                  developer_message:
+                    type: string
+                example:
+                  developer_message: User matching query does not exist.
+    parameters: [ ]
+  /api/courses/v1/courses/:
+    get:
+      operationId: courses_v1_courses_list
+      summary: 'Provides the information about courses the user can access'
+      description: |-
+        Request information on all courses visible to the specified user.
+      tags:
+        - courses
+      security:
+        - bearerAuth: [ ]
+        - jwtAuth: [ ]
+      parameters:
+        - name: page
+          in: query
+          description: A page number within the paginated result set.
+          required: false
+          schema:
+            type: integer
+        - name: page_size
+          in: query
+          description: Number of results to return per page.
+          required: false
+          schema:
+            type: integer
+        - name: search_term
+          in: query
+          description: Search term to filter courses (used by ElasticSearch).
+          required: false
+          schema:
+            type: string
+        - name: username
+          in: query
+          description: |-
+            The username of the specified user whose visible courses we
+            want to see. The username is not required only if the API is
+            requested by an Anonymous user.
+          required: false
+          schema:
+            type: string
+        - name: org
+          in: query
+          description: |-
+            If specified, visible `CourseOverview` objects are filtered
+            such that only those belonging to the organization with the
+            provided org code (e.g., "HarvardX") are returned.
+            Case-insensitive.
+          required: false
+          schema:
+            type: string
+        - name: permissions
+          in: query
+          description: |-
+            If specified, it filters visible `CourseOverview` objects by
+            checking if each permission specified is granted for the username.
+            Notice that Staff users are always granted permission to list any
+            course.
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+        - name: active_only
+          in: query
+          description: |-
+            If this boolean is specified, only the courses that have not ended or do not have 
+            any end date are returned. This is different from search_term because this filtering 
+            is done on CourseOverview and not ElasticSearch.
+          required: false
+          schema:
+            type: boolean
+        - name: course_keys
+          in: query
+          description: |-
+            If specified, it filters visible `CourseOverview` objects by the course keys 
+            (ids) provided.
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: |-
+            Indicates that a list of course discovery objects are returned
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    x-nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    x-nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Course'
+                example:
+                  - blocks_url: http://local.overhang.io:8000/api/courses/v2/blocks/?course_id=course-v1%3AedX%2Bexample%2B2012_Fall
+                    media:
+                      course_image:
+                        uri: /asset-v1:edX+example+2012_Fall+type@asset+block@images_course_image.jpg
+                        name: Course Image
+                    description: An example course.
+                    end: 2015-09-19T18:00:00Z
+                    enrollment_end: 2015-07-15T00:00:00Z
+                    enrollment_start: 2015-06-15T00:00:00Z
+                    course_id: course-v1:edX+example+2012_Fall
+                    name: Example Course
+                    number: example
+                    org: edX
+                    start: 2015-07-17T12:00:00Z
+                    start_display: July 17, 2015
+                    start_type: timestamp
+        '400':
+          description: |-
+            Indicates that an invalid parameter was sent.
+          content:
+            application/json:
+              schema:
+                required:
+                  - field_errors
+                type: object
+                properties:
+                  field_errors:
+                    type: object
+                example:
+                  field_errors:
+                    active_only:
+                      developer_message: Invalid Boolean Value.
+        '403':
+          description: |-
+            Indicates that a user who does not have permission to masquerade as another 
+            user who specifies a username other than their own.
+        '404':
+          description: |-
+            Indicates that he specified user does not exist, or the requesting user does 
+            not have permission to view their courses.
+          content:
+            application/json:
+              schema:
+                required:
+                  - developer_message
+                type: object
+                properties:
+                  developer_message:
+                    type: string
+                example:
+                  developer_message: User matching query does not exist.
+
+    parameters: [ ]
+components:
+  securitySchemes:
+    jwtAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: OAuth2
+  schemas:
+    _AbsolutMedia:
+      type: object
+      properties:
+        uri:
+          title: Uri
+          type: string
+          readOnly: true
+        uri_absolute:
+          title: Uri absolute
+          type: string
+          readOnly: true
+    _Media:
+      type: object
+      properties:
+        uri:
+          title: Uri
+          type: string
+          readOnly: true
+    Image:
+      required:
+        - raw
+        - small
+        - large
+      type: object
+      properties:
+        raw:
+          title: Raw
+          type: string
+          format: uri
+          minLength: 1
+        small:
+          title: Small
+          type: string
+          format: uri
+          minLength: 1
+        large:
+          title: Large
+          type: string
+          format: uri
+          minLength: 1
+    _CourseApiMediaCollection:
+      required:
+        - banner_image
+        - course_image
+        - course_video
+        - image
+      type: object
+      properties:
+        banner_image:
+          $ref: '#/components/schemas/_AbsolutMedia'
+        course_image:
+          $ref: '#/components/schemas/_Media'
+        course_video:
+          $ref: '#/components/schemas/_Media'
+        image:
+          $ref: '#/components/schemas/Image'
+    Course:
+      required:
+        - effort
+        - end
+        - enrollment_start
+        - enrollment_end
+        - id
+        - media
+        - name
+        - number
+        - org
+        - short_description
+        - start
+        - start_display
+        - start_type
+        - pacing
+        - mobile_available
+        - invitation_only
+      type: object
+      properties:
+        blocks_url:
+          title: Blocks url
+          type: string
+          readOnly: true
+        effort:
+          title: Effort
+          type: string
+          minLength: 1
+        end:
+          title: End
+          type: string
+          format: date-time
+        enrollment_start:
+          title: Enrollment start
+          type: string
+          format: date-time
+        enrollment_end:
+          title: Enrollment end
+          type: string
+          format: date-time
+        id:
+          title: Id
+          type: string
+          minLength: 1
+        media:
+          $ref: '#/components/schemas/_CourseApiMediaCollection'
+        name:
+          title: Name
+          type: string
+          minLength: 1
+        number:
+          title: Number
+          type: string
+          minLength: 1
+        org:
+          title: Org
+          type: string
+          minLength: 1
+        short_description:
+          title: Short description
+          type: string
+          minLength: 1
+        start:
+          title: Start
+          type: string
+          format: date-time
+        start_display:
+          title: Start display
+          type: string
+          minLength: 1
+        start_type:
+          title: Start type
+          type: string
+          minLength: 1
+        pacing:
+          title: Pacing
+          type: string
+          minLength: 1
+        mobile_available:
+          title: Mobile available
+          type: boolean
+        hidden:
+          title: Hidden
+          type: string
+          readOnly: true
+        invitation_only:
+          title: Invitation only
+          type: boolean
+        course_id:
+          title: Course id
+          type: string
+          readOnly: true
+          minLength: 1
