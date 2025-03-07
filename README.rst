@@ -179,4 +179,7 @@ If you want to manually run all pre-commit hooks on a repository, run :code:`pre
 Contributing
 ############
 
-Add your contribution policy. (If required)
+For contribution guidelines, please refer to our README:
+
+`Contribution Covenant <https://github.com/intela-bot/edx-unibot/blob/main/docs/contributing.md#contributor-covenant-code-of-conduct>`_
+
