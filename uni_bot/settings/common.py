@@ -44,6 +44,7 @@ def plugin_settings(settings):
 
     settings.UNIBOT_BASE_URL = 'https://example.com'
     settings.UNIBOT_API_KEY = 'extremely_strong_key'
+    settings.UNIBOT_GLOBAL_SETTINGS_ENDPOINT = '/api/plugin/admin/settings'
     settings.UNIBOT_TA_SETTINGS_ENDPOINT = '/api/plugin/settings/{course_id}'
     settings.UNIBOT_TA_SETTINGS_AVATAR_ENDPOINT = '/api/plugin/settings/{course_id}/avatar'
     settings.UNIBOT_COURSE_CONTEXTS_ENDPOINT = '/api/plugin/courses/{course_id}/context'
