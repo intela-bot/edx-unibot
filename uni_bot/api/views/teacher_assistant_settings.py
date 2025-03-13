@@ -319,7 +319,8 @@ class TeacherAssistantSettingsView(APIView):
         }
         ```
         """
-        redirection_response = UniBotTeacherAssistantClient().send_teacher_assistant_settings(course_id, request.data)
+        client = UniBotTeacherAssistantClient()
+        redirection_response = client.send_teacher_assistant_settings(course_id, request.data, request.user)
 
         return Response(redirection_response.json(), status=redirection_response.status_code)
 
@@ -372,9 +373,11 @@ class TeacherAssistantSettingsAvatarView(APIView):
         **Example Response**
         "Avatar successfully saved"
         """
-        redirection_response = UniBotTeacherAssistantClient().send_teacher_assistant_settings_avatar(
+        client = UniBotTeacherAssistantClient()
+        redirection_response = client.send_teacher_assistant_settings_avatar(
             course_id,
             {'avatar': request.data['avatar'].file},
+            request.user,
         )
 
         return Response(redirection_response.json(), status=redirection_response.status_code)

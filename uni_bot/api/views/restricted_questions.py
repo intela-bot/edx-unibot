@@ -110,7 +110,7 @@ class RestrictedQuestionViewSet(ViewSet):
         ```
         """
         client = UniBotRestrictedQuestionClient()
-        redirection_response = client.update_restricted_question(course_id, uuid, request.data)
+        redirection_response = client.update_restricted_question(course_id, uuid, request.data, request.user)
 
         return Response(redirection_response.json(), status=redirection_response.status_code)
 
@@ -178,6 +178,10 @@ class RestrictedQuestionViewSet(ViewSet):
         ```
         """
         client = UniBotRestrictedQuestionClient()
-        redirection_response = client.send_restricted_questions_restriction_status(course_id, request.data)
+        redirection_response = client.send_restricted_questions_restriction_status(
+            course_id,
+            request.data,
+            request.user,
+        )
 
         return Response(redirection_response.json(), status=redirection_response.status_code)

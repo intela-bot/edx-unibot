@@ -3,6 +3,7 @@ Course widget control API views.
 """
 from django.http import HttpResponse
 from rest_framework.decorators import action
+from rest_framework.request import Request
 from rest_framework.viewsets import ViewSet
 
 from uni_bot.api.client import UniBotCourseWidgetControlClient
@@ -16,7 +17,7 @@ class CourseWidgetControlViewSet(ViewSet):
     """
 
     @action(detail=False, methods=['post'], url_path='reset_widget', url_name='reset_widget')
-    def reset_widget(self, __, course_id: str) -> HttpResponse:
+    def reset_widget(self, request: Request, course_id: str) -> HttpResponse:
         """
         Reset all widget settings for the course to their defaults.
 
@@ -28,6 +29,6 @@ class CourseWidgetControlViewSet(ViewSet):
 
         If the request is successful, an HTTP 200 "OK" response is returned.
         """
-        redirection_response = UniBotCourseWidgetControlClient().reset_widget(course_id)
+        redirection_response = UniBotCourseWidgetControlClient().reset_widget(course_id, request.user)
 
         return HttpResponse(redirection_response.content, status=redirection_response.status_code)

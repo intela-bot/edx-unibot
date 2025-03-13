@@ -242,9 +242,11 @@ class AdditionalContext(models.Model):
         verbose_name_plural = _("Additional Context")
 
     def save(self, *args, **kwargs):
+        # Check if the instance already exists in the database
         if self.pk:
             old_instance = AdditionalContext.objects.filter(pk=self.pk).first()
             if old_instance and old_instance.file != self.file:
+                # Remove the old file
                 old_instance.file.delete(save=False)
         super().save(*args, **kwargs)
         api_url = configuration_helpers.get_unibot_base_url()

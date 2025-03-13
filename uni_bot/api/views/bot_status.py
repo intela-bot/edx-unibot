@@ -134,6 +134,6 @@ class BotStatusView(APIView):
         }
         ```
         """
-        redirection_response = UniBotStatusClient().update_bot_status(course_id, request.data)
+        redirection_response = UniBotStatusClient().update_bot_status(course_id, request.data, request.user)
 
         return self.generate_response(course_id, redirection_response)

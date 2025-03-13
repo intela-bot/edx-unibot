@@ -140,6 +140,7 @@ class ModelsViewSet(ViewSet):
 
         If the request is successful, an HTTP 200 "OK" response is returned.
         """
-        redirection_response = UniBotLearningModelClient().update_learning_model(course_id, uuid, request.data)
+        client = UniBotLearningModelClient()
+        redirection_response = client.update_learning_model(course_id, uuid, request.data, request.user)
 
         return Response(redirection_response.json(), status=redirection_response.status_code)

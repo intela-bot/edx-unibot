@@ -146,7 +146,7 @@ class CourseContextViewSet(ViewSet):
 
         return JsonResponse(course_data, CourseSettingsEncoder)
 
-    def create(self, __, course_id: str) -> Response:
+    def create(self, request: Request, course_id: str) -> Response:
         """
         Collect the course context and provides the contexts data.
 
@@ -184,7 +184,7 @@ class CourseContextViewSet(ViewSet):
         course = modulestore().get_course(course_key)
         course_data = CourseDataCollector().collect(course)
 
-        redirection_response = UniBotCourseContextClient().send_course_contexts(course_id, course_data)
+        redirection_response = UniBotCourseContextClient().send_course_contexts(course_id, course_data, request.user)
 
         return Response(redirection_response.json(), status=redirection_response.status_code)
 
@@ -223,6 +223,6 @@ class CourseContextViewSet(ViewSet):
         ```
         """
         client = UniBotCourseContextClient()
-        redirection_response = client.update_course_context(course_id, usage_key_string, request.data)
+        redirection_response = client.update_course_context(course_id, usage_key_string, request.data, request.user)
 
         return Response(redirection_response.json(), status=redirection_response.status_code)

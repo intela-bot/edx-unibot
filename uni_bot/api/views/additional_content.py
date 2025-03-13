@@ -95,11 +95,12 @@ class AdditionalContentViewSet(ViewSet):
             for uploaded_File in request.FILES.getlist(field_name)
         ]
 
-        redirection_response = UniBotAdditionalContentClient().send_additional_content(course_id, redirection_files)
+        client = UniBotAdditionalContentClient()
+        redirection_response = client.send_additional_content(course_id, redirection_files, request.user)
 
         return Response(redirection_response.json(), status=redirection_response.status_code)
 
-    def destroy(self, _, course_id: str, uuid: str) -> HttpResponse:  # pylint: disable=unused-argument
+    def destroy(self, request: Request, course_id: str, uuid: str) -> HttpResponse:  # pylint: disable=unused-argument
         """
         Delete the course additional content item.
 
@@ -111,7 +112,7 @@ class AdditionalContentViewSet(ViewSet):
 
         If the request is successful, an HTTP 204 "No Content" response is returned.
         """
-        redirection_response = UniBotAdditionalContentClient().delete_additional_content(uuid)
+        redirection_response = UniBotAdditionalContentClient().delete_additional_content(uuid, request.user)
 
         response_kwargs = {'status': redirection_response.status_code}
         if content_type := redirection_response.headers.get('Content-Type'):

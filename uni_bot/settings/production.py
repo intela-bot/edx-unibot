@@ -17,60 +17,60 @@ def plugin_settings(settings):
     settings.UNIBOT_API_KEY = settings.ENV_TOKENS.get('UNIBOT_API_KEY', 'extremely_strong_key')
     settings.UNIBOT_TA_SETTINGS_ENDPOINT = settings.ENV_TOKENS.get(
         'UNIBOT_TA_SETTINGS_ENDPOINT',
-        '/api/plugin/settings/{course_id}',
+        'api/plugin/settings/{course_id}',
     )
     settings.UNIBOT_TA_SETTINGS_AVATAR_ENDPOINT = settings.ENV_TOKENS.get(
         'UNIBOT_TA_SETTINGS_AVATAR_ENDPOINT',
-        '/api/plugin/settings/{course_id}/avatar',
+        'api/plugin/settings/{course_id}/avatar',
     )
     settings.UNIBOT_COURSE_CONTEXTS_ENDPOINT = settings.ENV_TOKENS.get(
         'UNIBOT_COURSE_CONTEXTS_ENDPOINT',
-        '/api/plugin/courses/{course_id}/context',
+        'api/plugin/courses/{course_id}/context',
     )
     settings.UNIBOT_COURSE_CONTEXT_ENDPOINT = settings.ENV_TOKENS.get(
         'UNIBOT_COURSE_CONTEXT_ENDPOINT',
-        '/api/plugin/courses/{course_id}/context/{section_id}',
+        'api/plugin/courses/{course_id}/context/{section_id}',
     )
     settings.UNIBOT_RESTRICTED_QUESTIONS_ENDPOINT = settings.ENV_TOKENS.get(
         'UNIBOT_RESTRICTED_QUESTIONS_ENDPOINT',
-        '/api/plugin/courses/{course_id}/question',
+        'api/plugin/courses/{course_id}/question',
     )
     settings.UNIBOT_RESTRICTED_QUESTIONS_RESTRICT_ENDPOINT = settings.ENV_TOKENS.get(
         'UNIBOT_RESTRICTED_QUESTIONS_RESTRICT_ENDPOINT',
-        '/api/plugin/courses/{course_id}/question/restrict',
+        'api/plugin/courses/{course_id}/question/restrict',
     )
     settings.UNIBOT_RESTRICTED_QUESTION_ENDPOINT = settings.ENV_TOKENS.get(
         'UNIBOT_RESTRICTED_QUESTION_ENDPOINT',
-        '/api/plugin/courses/{course_id}/question/{question_uuid}',
+        'api/plugin/courses/{course_id}/question/{question_uuid}',
     )
     settings.UNIBOT_STATUS_ENDPOINT = settings.ENV_TOKENS.get(
         'UNIBOT_STATUS_ENDPOINT',
-        '/api/plugin/course/{course_id}',
+        'api/plugin/course/{course_id}',
     )
     settings.UNIBOT_MODELS_ENDPOINT = settings.ENV_TOKENS.get(
         'UNIBOT_MODELS_ENDPOINT',
-        '/api/plugin/course/{course_id}/model',
+        'api/plugin/course/{course_id}/model',
     )
     settings.UNIBOT_MODEL_ENDPOINT = settings.ENV_TOKENS.get(
         'UNIBOT_MODEL_ENDPOINT',
-        '/api/plugin/course/{course_id}/model/{model_uuid}',
+        'api/plugin/course/{course_id}/model/{model_uuid}',
     )
     settings.UNIBOT_COURSE_SIGNAL_ENDPOINT = settings.ENV_TOKENS.get(
         'UNIBOT_COURSE_SIGNAL_ENDPOINT',
-        '/api/plugin/signal/course/{course_id}',
+        'api/plugin/signal/course/{course_id}',
     )
     settings.UNIBOT_ADDITIONAL_CONTENT_ENDPOINT = settings.ENV_TOKENS.get(
         'UNIBOT_ADDITIONAL_CONTENT_ENDPOINT',
-        '/api/plugin/{course_id}/context/additional',
+        'api/plugin/{course_id}/context/additional',
     )
     settings.UNIBOT_ADDITIONAL_CONTENT_ITEM_ENDPOINT = settings.ENV_TOKENS.get(
         'UNIBOT_ADDITIONAL_CONTENT_ITEM_ENDPOINT',
-        '/api/plugin/context/additional/{item_uuid}',
+        'api/plugin/context/additional/{item_uuid}',
     )
     settings.UNIBOT_GLOBAL_SETTINGS_ENDPOINT = settings.ENV_TOKENS.get(
-        "UNIBOT_GLOBAL_SETTINGS_ENDPOINT", "/api/plugin/admin/settings"
+        "UNIBOT_GLOBAL_SETTINGS_ENDPOINT", "api/plugin/admin/settings"
     )
     settings.UNIBOT_RESET_COURSE_WIDGET_ENDPOINT = settings.ENV_TOKENS.get(
         'UNIBOT_RESET_COURSE_WIDGET_ENDPOINT',
-        '/api/plugin/course/{course_id}/reset-widget',
+        'api/plugin/course/{course_id}/reset-widget',
     )

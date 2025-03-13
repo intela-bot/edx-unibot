@@ -11,6 +11,9 @@ const STYLE_CONSTANTS = {
     primaryLight: '#f7fafb',
     primaryBlue: 'rgba(64, 64, 242, 0.05)',
     secondaryModalBlue: 'rgba(57, 101, 255, 0.1)',
+    error: 'rgb(211, 47, 47)',
+    error40: 'rgb(211, 47, 47, 0.4)',
+    error10: 'rgb(211, 47, 47, 0.1)',
   },
   fonts: {
     primary: '"Open Sans", sans-serif',
@@ -84,7 +87,7 @@ const theme = createTheme({
             height: '46px',
             padding: '14px 16px',
           }),
-          ...(['muted'].includes(ownerState.variant) && {
+          ...(['muted-danger'].includes(ownerState.variant) && {
             border: `2px solid ${STYLE_CONSTANTS.colors.black80}`,
             color: STYLE_CONSTANTS.colors.black80,
             height: '46px',
@@ -95,6 +98,13 @@ const theme = createTheme({
             textShadow: 'none',
             border: 'none',
             background: 'rgba(64, 64, 242, 0.04)',
+            ...(['text'].includes(ownerState.variant) && {
+              color: STYLE_CONSTANTS.colors.primaryAccentHover,
+            }),
+            ...(['text'].includes(ownerState.variant) && ['error'].includes(ownerState.color) && {
+              color: STYLE_CONSTANTS.colors.error,
+              background: STYLE_CONSTANTS.colors.error10,
+            }),
             ...(['contained'].includes(ownerState.variant) && {
               border: `2px solid ${STYLE_CONSTANTS.colors.primaryAccent}`,
               background: STYLE_CONSTANTS.colors.primaryAccentHover,
@@ -103,9 +113,10 @@ const theme = createTheme({
               border: `2px solid ${STYLE_CONSTANTS.colors.primaryAccent}`,
               color: STYLE_CONSTANTS.colors.primaryAccent,
             }),
-            ...(['muted'].includes(ownerState.variant) && {
-              color: STYLE_CONSTANTS.colors.black80,
-              border: `2px solid ${STYLE_CONSTANTS.colors.black80}`,
+            ...(['muted-danger'].includes(ownerState.variant) && {
+              color: `${STYLE_CONSTANTS.colors.error} !important`,
+              border: `2px solid ${STYLE_CONSTANTS.colors.error40} !important`,
+              background: `${STYLE_CONSTANTS.colors.error10} !important`,
             }),
           },
           '&:disabled': {
@@ -127,7 +138,7 @@ const theme = createTheme({
             ...(['outlined'].includes(ownerState.variant) && {
               border: `2px solid ${STYLE_CONSTANTS.colors.primaryAccent}`,
             }),
-            ...(['muted'].includes(ownerState.variant) && {
+            ...(['muted-danger'].includes(ownerState.variant) && {
               color: STYLE_CONSTANTS.colors.black80,
               border: `2px solid ${STYLE_CONSTANTS.colors.black80}`,
             }),
