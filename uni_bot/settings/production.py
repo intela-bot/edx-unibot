@@ -10,7 +10,7 @@ def plugin_settings(settings):
     """
     settings.UNIBOT_INSTRUCTOR_WIDGET_DISPLAYING_MODE = settings.ENV_TOKENS.get(
         'UNIBOT_INSTRUCTOR_WIDGET_DISPLAYING_MODE',
-        'custom_widget_in_separate_tab',
+        'embedded_widget_in_instructor_tab',
     )
 
     settings.UNIBOT_BASE_URL = settings.ENV_TOKENS.get('UNIBOT_BASE_URL', 'https://example.com')

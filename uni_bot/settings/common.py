@@ -38,7 +38,7 @@ def plugin_settings(settings):
     """
     settings.STATICFILES_DIRS.insert(0, Path(__file__).parent.parent + '/frontend-app/dist/')
 
-    settings.UNIBOT_INSTRUCTOR_WIDGET_DISPLAYING_MODE = 'custom_widget_in_separate_tab'
+    settings.UNIBOT_INSTRUCTOR_WIDGET_DISPLAYING_MODE = 'embedded_widget_in_instructor_tab'
 
     settings.DEFAULT_PROXY_REQUEST_TIMEOUT_SECONDS = 5
 
