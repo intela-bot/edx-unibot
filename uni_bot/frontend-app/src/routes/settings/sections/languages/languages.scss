@@ -1,0 +1,112 @@
+.LanguagesSection {
+    margin-bottom: 32px;
+
+    .LanguagesSection__select-error {
+        color: $warnings-red;
+    }
+}
+
+.LanguagesSection__select {
+    font: 400 12px/20px $font-primary;
+
+    .LanguagesSection__placeholder {
+        font: 400 12px/20px $font-primary;
+        color: $black-40;
+    }
+
+    .LanguagesSection__control {
+        border: none;
+        box-shadow: none;
+        min-height: 46px;
+        background-color: $primary-light;
+
+        @media (hover: hover) {
+            &:hover {
+                background-color: $primary-blue;
+            }
+        }
+    }
+
+    .LanguagesSection__indicator svg {
+        fill: $black-40;
+        cursor: pointer;
+        width: 18px;
+        height: 18px;
+        border-radius: 4px;
+
+        @media (hover: hover) {
+            &:hover {
+                fill: $black-80;
+            }
+        }
+    }
+
+    .LanguagesSection__indicator-separator {
+        display: none;
+    }
+
+    .LanguagesSection__select-option {
+        display: flex;
+        align-items: center;
+
+        &:focus {
+            background-color: red;
+        }
+
+        .LanguagesSection__select-option__icon {
+            margin-right: 10px;
+            width: 20px;
+            height: 15px;
+            border-radius: 3px;
+        }
+    }
+
+    .LanguagesSection__select-multi-value {
+        font: 400 14px/19px $font-primary;
+        display: flex;
+        align-items: center;
+        background-color: $white-100;
+        height: 35px;
+        color: #042d7c;
+        border-radius: 4px;
+        padding-right: 8px;
+        padding-left: 10px;
+
+        &.LanguagesSection__multi-value {
+            min-width: 125px;
+            margin-right: 22px;
+        }
+
+        .LanguagesSection__multi-value__remove {
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            background-color: $primary-blue;
+            margin-left: 9px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .LanguagesSection__multi-value__remove svg {
+            position: absolute;
+            left: 2px;
+            fill: $black-80;
+        }
+
+        .LanguagesSection__select-multi-value__icon {
+            font-size: 17px;
+            margin-right: 9px;
+            width: 24px;
+            height: 17px;
+            border-radius: 3px;
+        }
+    }
+
+    .LanguagesSection__input {
+        box-shadow: none;
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+}

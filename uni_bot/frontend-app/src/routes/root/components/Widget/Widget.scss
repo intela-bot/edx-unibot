@@ -1,0 +1,159 @@
+body .TabWrapper .WidgetAccordion {
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    box-shadow: 4px 7px 15px 0 rgba(85, 55, 170, 0.22);
+    margin: 0;
+    position: fixed;
+    z-index: 1000;
+    right: 20px;
+    bottom: 30px;
+    max-height: calc(100vh - 40px);
+    max-width: calc(100vw - 60px);
+
+    &:before {
+        content: "";
+        height: 0;
+    }
+
+    button {
+        opacity: 1;
+        box-shadow: none;
+        background-image: none;
+    }
+
+    .WidgetAccordion__Header {
+        color: $white-100;
+        padding: 12px;
+        border-radius: 16px 16px 0 0;
+
+        &:not(.Mui-expanded) {
+            border-radius: 16px;
+
+            .MuiAccordionSummary-content {
+                margin: 0;
+                align-items: center;
+            }
+        }
+
+        .MuiAccordionSummary-content.Mui-expanded {
+            margin: 0;
+            align-items: center;
+        }
+
+        .MuiAccordionSummary-expandIconWrapper {
+            margin-right: 5px;
+            transform: scale(-1, 1);
+        }
+
+        .MuiAccordionSummary-expandIconWrapper svg {
+            width: 36px;
+            height: 36px;
+            color: $white-100;
+        }
+
+        .WidgetAccordion__Header__LogoutIcon {
+            color: $white-100;
+            margin-right: 5px;
+            transform: rotate(180deg);
+        }
+
+        .WidgetAccordion__Header__img {
+            width: 32px;
+            height: 32px;
+            margin-right: 8px;
+        }
+
+        .WidgetAccordion__Header__Info {
+            .WidgetAccordion__Header__Info-title {
+                font: 700 16px/22px $font-primary;
+            }
+
+            .WidgetAccordion__Header__Info-subtitle {
+                font: 400 12px/24px $font-primary;
+                color: $white-100;
+            }
+        }
+    }
+
+    .MuiCollapse-entered {
+        flex-grow: 1;
+
+        .MuiCollapse-wrapper,
+        .MuiAccordion-region {
+            height: 100%;
+        }
+
+        .MuiAccordion-region {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .WidgetAccordion__Details {
+        padding: 16px;
+        overflow: auto;
+        flex-grow: 1;
+
+        .WidgetAccordion__Details__Text {
+            font: 400 14px/20px $font-primary;
+        }
+    }
+
+    .WidgetAccordion__Input .MuiInputBase-formControl {
+        background-color: $white-100;
+        height: 44px;
+        position: relative;
+    }
+
+    &:not(.Mui-expanded) .WidgetAccordion__Input__Border {
+        display: none;
+    }
+
+    .WidgetAccordion__Input__Border {
+        position: absolute;
+        height: 2px;
+        width: 87px;
+        bottom: 22px;
+    }
+
+    .WidgetAccordion__PoweredBy {
+        font: 400 11px/13px $font-secondary;
+        color: $black-40;
+        text-align: center;
+        padding: 6px 12px;
+        border-radius: 0 0 16px 16px;
+
+        .WidgetAccordion__PoweredBy__Link {
+            margin-left: 2px;
+        }
+    }
+}
+
+button.WidgetCollapsedBtn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    color: $white-100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    right: 20px;
+    bottom: 30px;
+    font-size: 32px;
+
+    &:focus {
+        box-shadow: 0 0 0 2px $primary-accent-focus;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            cursor: pointer;
+            opacity: 0.7;
+        }
+    }
+}

@@ -1,0 +1,83 @@
+.SortableTableWrapper {
+    table-layout: fixed;
+
+    thead {
+        font: 400 12px/20px $font-secondary;
+
+        th {
+            span {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font: 400 12px/20px $font-secondary;
+            }
+
+            svg {
+                margin-left: 8px;
+                color: $black-40;
+            }
+
+            &[aria-sort] span {
+                color: $primary-accent;
+            }
+        }
+    }
+
+    tbody {
+        th,
+        td {
+            font: 400 14px/22px $font-secondary;
+        }
+    }
+
+    .MuiTableCell-head {
+        line-height: 20px;
+    }
+}
+
+.SortableTableRow.SortableTableRow_disabled {
+    .SortableTableCell_name,
+    .SortableTableCell_content {
+        &,
+        input {
+            color: $black-40;
+            text-decoration: line-through;
+        }
+    }
+}
+
+.SortableTableCell_status {
+    span[class*="status_"] {
+        white-space: nowrap;
+
+        &:before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            margin-right: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+
+    .status_active:before {
+        background: $warnings-green;
+    }
+
+    .status_disabled:before {
+        background: $black-20;
+    }
+
+    .status_started:before,
+    .status_in-training:before {
+        background: $warnings-yellow;
+    }
+}
+
+.SortableTableSortCell {
+    &:focus {
+        box-shadow: 0 0 0 2px $primary-accent-focus;
+        border-radius: 4px;
+    }
+}

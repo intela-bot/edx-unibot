@@ -1,0 +1,71 @@
+@import "./components/ActivationSwitcher/ActivationSwitcher";
+@import "./components/Introduction/Introduction";
+@import "./components/NavigationTabs/NavigationTabs";
+@import "./components/NavigationControls/NavigationControls";
+@import "./components/ScanningStatus/ScanningStatus";
+@import "./components/Widget/Widget";
+
+.HeaderTopWrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    @include media-breakpoint-down(lg) {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+.TabWrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+
+    @include media-breakpoint-down(xl) {
+        gap: 0;
+        flex-direction: column;
+    }
+}
+
+.TabContentWrapper {
+    flex-grow: 1;
+    flex-shrink: 1;
+    max-width: 100%;
+
+    &:not(.expanded) {
+        width: 100%;
+        max-width: $max-container-width;
+    }
+}
+
+.Message__close-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: rgba(#1c1c1c, 0.05);
+    color: rgba(#1c1c1c, 0.8);
+    position: absolute;
+    top: 10px;
+    right: 6px;
+    box-shadow: none;
+
+    @media (hover: hover) {
+        &:not(:disabled):hover {
+            box-shadow: none;
+            cursor: pointer;
+            background: $black-20;
+        }
+    }
+
+    &:not(:disabled):focus {
+        outline: none;
+        border-radius: 4px;
+        box-shadow: 0 0 0 2px $primary-accent-focus;
+    }
+}
