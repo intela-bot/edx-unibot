@@ -1,0 +1,93 @@
+// Colors Palette
+$primary: #301e8e;
+$menu: #0075b4;
+$navigation: #69638a;
+$button: #6767d9;
+$secondary: #ed728f;
+$background: #efeff9;
+$field: #e1e1f7;
+$timeline: #eda672;
+$black: #000;
+
+// White
+$white-100: #fff;
+$white-80: rgba($white-100, 0.8);
+$white-40: rgba($white-100, 0.4);
+$white-20: rgba($white-100, 0.2);
+$white-10: rgba($white-100, 0.1);
+
+// Black
+$black-100: #1c1c1c;
+$black-80: rgba($black-100, 0.8);
+$black-40: rgba($black-100, 0.4);
+$black-20: rgba($black-100, 0.2);
+$black-10: rgba($black-100, 0.1);
+$black-5: rgba($black-100, 0.05);
+
+// Primary
+$primary-accent: #4040f2;
+$primary-accent-focus: rgba($primary-accent, 0.5);
+$primary-blue: rgba($primary-accent, 0.05);
+$primary-light: #f7fafb;
+$primary-background: $white-100;
+$primary-hover: #1815b0;
+
+// Secondary
+$secondary-blue: rgba(89, 131, 255, 0.18);
+$secondary-red: rgba(238, 80, 72, 0.18);
+$secondary-modal-blue: rgba(57, 101, 255, 0.1);
+
+// Warning colors
+$warnings-green: #449342;
+$warnings-red: #d0342c;
+$warnings-red-hover: #9e160f;
+$warnings-yellow: #facb40;
+$warnings-orange: #f49931;
+
+// Static
+$static-black: $black-100;
+$static-white: $white-100;
+$static-accent: $primary-accent;
+$static-red: $warnings-red;
+
+// Fonts
+$font-primary: "Open Sans", sans-serif;
+$font-secondary: Inter, sans-serif;
+$font-size-small: 14px;
+$line-height-small: 20px;
+
+// Containers
+$max-container-width: 1188px;
+
+// Grid breakpoints
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px,
+) !default;
+
+// Grid containers
+// Define the maximum width of `.container` for different screen sizes.
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1320px,
+) !default;
+
+// Spacing
+$margin-bottom-medium: 20px;
+$margin-bottom-small: 16px;
+
+// Sizes
+$size-large: 46px;
+$size-medium: 46px;
+
+// Transition
+$transition-duration: 0.3s;

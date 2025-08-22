@@ -1,0 +1,96 @@
+@import "./components/Feedbacks";
+
+.DashboardContent {
+    max-width: 100%;
+
+    .DashboardContent__heading {
+        display: flex;
+        gap: 32px;
+        margin-bottom: 32px;
+
+        @include media-breakpoint-down(md) {
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+}
+
+.AssistanceStatistics__list,
+.AssistanceStatisticsSummary__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 100%;
+    overflow: auto;
+
+    @include media-breakpoint-down(md) {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    img {
+        display: block;
+
+        @include media-breakpoint-down(md) {
+            max-width: 100%;
+        }
+    }
+}
+
+.AssistanceStatistics__list {
+    img {
+        margin-left: -15px;
+
+        @include media-breakpoint-down(md) {
+            margin: 0;
+        }
+    }
+}
+
+.AssistanceStatisticsSummary__list {
+    img {
+        margin-left: -10px;
+
+        @include media-breakpoint-down(md) {
+            margin: 0;
+        }
+    }
+}
+
+.AssistanceStatistics {
+    &.favourite {
+        background: $primary-blue;
+        padding: 18px 18px 0;
+        border-radius: 16px;
+    }
+
+    .AssistanceStatistics__heading {
+        font: 400 16px/24px $font-primary;
+        color: $static-accent;
+    }
+
+    & + .AssistanceStatistics {
+        margin-top: 18px;
+    }
+}
+
+.AssistanceFeedback {
+    position: relative;
+    flex-shrink: 0;
+
+    .AssistanceFeedback__btn {
+        position: absolute;
+        right: 45px;
+        top: 22px;
+        padding-left: 25px;
+        padding-right: 25px;
+
+        @include media-breakpoint-down(sm) {
+            right: 20%;
+            top: 12px;
+        }
+    }
+}

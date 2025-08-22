@@ -1,0 +1,17 @@
+@import "./components/SortableTableRow/SortableTableRow";
+
+.RestrictedQuestions__top-bar {
+    margin: 0 0 16px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px 0;
+
+    .RestrictedQuestions__add-new-btn {
+        margin-right: 16px;
+    }
+
+    label {
+        margin-bottom: 0;
+    }
+}

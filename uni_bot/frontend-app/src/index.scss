@@ -1,0 +1,24 @@
+@import "./assets/scss/variables";
+@import "./assets/scss/mixins";
+@import "./assets/scss/common";
+
+// Components
+@import "./components";
+
+// Routers
+@import "./routes/root";
+@import "./routes/introduction";
+@import "./routes/settings";
+@import "./routes/scanCourse";
+@import "./routes/restrictedQuestions";
+@import "./routes/additionalContent";
+@import "./routes/dashboard";
+@import "./routes/availableModels";
+
+.Toastify__toast-container {
+    .Toastify__close-button.Toastify__close-button--light {
+        background: transparent;
+        box-shadow: none;
+        border: none;
+    }
+}

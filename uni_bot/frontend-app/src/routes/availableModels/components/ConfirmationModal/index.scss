@@ -1,0 +1,31 @@
+.ConfirmationModal .MuiDialog-paper {
+    max-width: 540px;
+    border-radius: 24px;
+
+    .MuiTypography-h6 {
+        padding: 40px 40px 20px;
+    }
+
+    .MuiDialogContent-root {
+        padding: 0 40px 40px;
+    }
+
+    .ConfirmationModalActions {
+        padding: 0 40px 40px;
+
+        @include media-breakpoint-down(sm) {
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .MuiButton-root {
+            flex-grow: 1;
+            flex-basis: 50%;
+
+            @include media-breakpoint-down(sm) {
+                width: 100%;
+                margin: 0;
+            }
+        }
+    }
+}
