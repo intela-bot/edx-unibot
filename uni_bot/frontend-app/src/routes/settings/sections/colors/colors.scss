@@ -1,0 +1,48 @@
+.Colors {
+    margin-bottom: 32px;
+}
+
+.ColorPickers {
+    display: flex;
+    align-items: center;
+
+    .ColorPicker__ColorBox {
+        display: flex;
+        align-items: center;
+
+        &:not(:last-child) {
+            margin-right: 48px;
+        }
+
+        .MuiFormControl-root.MuiTextField-root.css-1o6saow-MuiFormControl-root-MuiTextField-root {
+            margin: 0;
+            width: 103px;
+        }
+
+        .ColorPicker__ColorBox__Label {
+            margin-right: 24px;
+            color: $black-100;
+            font-size: $font-size-small;
+            line-height: $line-height-small;
+        }
+
+        .ColorPicker__ColorBox-ColorPreview {
+            width: $size-large;
+            height: $size-large;
+            border-radius: 8px;
+            border: 1px solid $black-100;
+            margin-right: 4px;
+            cursor: pointer;
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+        flex-direction: column;
+        align-items: baseline;
+
+        .ColorPicker__ColorBox:not(:last-child) {
+            margin-right: 0;
+            margin-bottom: 16px;
+        }
+    }
+}
