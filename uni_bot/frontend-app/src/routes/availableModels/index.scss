@@ -1,0 +1,61 @@
+@import "components/ConfirmationModal";
+@import "components/ModelForm";
+
+.AvailableModelsContent {
+    .SortableTableCell_id,
+    .SortableTableCell_credentials {
+        white-space: nowrap;
+    }
+
+    .SortableTableCell_credentials {
+        min-width: 70px;
+    }
+
+    .SortableTableCell_name {
+        width: 100%;
+
+        svg {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+    }
+
+    .SortableTableHeadingRow_selected {
+        td {
+            color: $warnings-green;
+            border-bottom-color: rgba($warnings-green, 0.5);
+        }
+
+        .SortableTableCell_name {
+            padding-left: 32px;
+        }
+
+        & + tr {
+            background: #f0f7f0 !important;
+
+            &:hover {
+                cursor: default;
+            }
+
+            td {
+                border-bottom-color: rgba($warnings-green, 0.5);
+            }
+        }
+    }
+
+    tr.MuiTableRow-hover {
+        cursor: pointer;
+    }
+}
+
+.SortableTableCellInnerWrapper {
+    display: flex;
+    align-items: center;
+
+    .OverflowTipWrapper {
+        white-space: normal;
+        flex-grow: 1;
+    }
+}

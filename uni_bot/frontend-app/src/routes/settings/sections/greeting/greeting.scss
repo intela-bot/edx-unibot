@@ -1,0 +1,40 @@
+.Greeting {
+    margin-bottom: 20px;
+
+    .CustomTextarea {
+        font: 400 14px/20px $font-secondary;
+        width: 100%;
+        padding: 12px 16px 13px;
+        border-radius: 8px;
+        background-color: $primary-light;
+        border: none;
+        color: $black-80;
+        resize: none;
+        box-shadow: none;
+
+        &::placeholder {
+            font: 400 12px/20px $font-primary;
+            color: $black-40;
+        }
+
+        @media (hover: hover) {
+            &:hover {
+                border-color: transparent;
+                background-color: $primary-blue;
+            }
+        }
+
+        &:focus {
+            outline: 0;
+            border-color: transparent;
+        }
+
+        &:focus-visible {
+            outline: 0;
+        }
+    }
+
+    .Greeting__form-control {
+        width: 100%;
+    }
+}
