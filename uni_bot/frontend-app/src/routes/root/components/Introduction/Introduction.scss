@@ -1,0 +1,72 @@
+.Introduction {
+    display: inline-flex;
+    align-items: center;
+    max-width: 650px;
+    border-radius: 8px;
+    padding: 10px;
+    background: rgba($primary, 0.05);
+    position: relative;
+    gap: 16px;
+    min-height: 66px;
+    font: 400 16px/22px $font-primary;
+    letter-spacing: 0.2px;
+
+    &:not(.collapsed) {
+        padding-right: 34px;
+    }
+
+    .Introduction__avatar-btn {
+        flex-shrink: 0;
+        padding: 0;
+        margin: 0;
+        background: transparent;
+        border: none;
+        position: relative;
+        box-shadow: none;
+
+        @media (hover: hover) {
+            &:hover {
+                box-shadow: none;
+                background: transparent;
+                cursor: pointer;
+                opacity: 0.7;
+            }
+        }
+
+        &:focus {
+            border: none;
+            outline: none;
+            border-radius: 4px;
+            box-shadow: 0 0 0 2px $primary-accent-focus;
+        }
+    }
+
+    .Introduction__status {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+
+        &.active {
+            background: $warnings-green;
+        }
+
+        &.deactivated {
+            background: $warnings-red;
+        }
+
+        &.inTraining {
+            background: $warnings-yellow;
+        }
+
+        &.unknown {
+            background: #828282;
+        }
+    }
+
+    .Introduction__text {
+        margin: 0;
+    }
+}
