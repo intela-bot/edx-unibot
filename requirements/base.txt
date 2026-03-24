@@ -141,7 +141,7 @@ jsonfield==3.2.0
     # via -r requirements/base.in
 kombu==5.5.4
     # via celery
-lxml==6.0.0
+lxml==5.3.0
     # via
     #   edxval
     #   xblock

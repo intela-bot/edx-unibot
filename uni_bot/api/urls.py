@@ -39,6 +39,9 @@ uuid_lookup_router.register(
 
 urlpatterns = [
     path('', include([*usage_key_lookup_router.urls, *uuid_lookup_router.urls])),
+    path('widget/', views.WidgetView.as_view(), name='widget'),
+    path('widget/loader/', views.WidgetLoaderView.as_view(), name='widget_loader'),
+    re_path(r'^widget/static/(?P<filename>[\w.-]+)$', views.WidgetStaticView.as_view(), name='widget_static'),
     path('user_course_location/', views.UserCourseLocationView.as_view(), name='user_course_location'),
     re_path(
         rf'ta_settings/{COURSE_ID_PATTERN}/avatar/',

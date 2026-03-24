@@ -61,6 +61,9 @@ def plugin_settings(settings):
     settings.UNIBOT_ADDITIONAL_CONTENT_ITEM_ENDPOINT = 'api/plugin/context/additional/{item_uuid}'
     settings.UNIBOT_GLOBAL_SETTINGS_ENDPOINT = 'api/plugin/admin/settings'
     settings.UNIBOT_RESET_COURSE_WIDGET_ENDPOINT = 'api/plugin/course/{course_id}/reset-widget'
+    settings.UNIBOT_WIDGET_ENDPOINT = 'api/widget'
+    settings.UNIBOT_LOADER_ENDPOINT = 'api/widget/loader'
+    settings.UNIBOT_STATIC_ENDPOINT = 'widget'
     settings.UNIBOT_INSTRUCTOR_WIDGET_SCRIPT = '<script>console.log("Unibot script example");</script>'
 
     settings.FEATURES['INCLUDE_FILE_CONTENT_DURING_DATA_COLLECTION'] = True

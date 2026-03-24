@@ -74,3 +74,15 @@ def plugin_settings(settings):
         'UNIBOT_RESET_COURSE_WIDGET_ENDPOINT',
         'api/plugin/course/{course_id}/reset-widget',
     )
+    settings.UNIBOT_WIDGET_ENDPOINT = settings.ENV_TOKENS.get(
+        'UNIBOT_WIDGET_ENDPOINT',
+        'api/widget',
+    )
+    settings.UNIBOT_LOADER_ENDPOINT = settings.ENV_TOKENS.get(
+        'UNIBOT_LOADER_ENDPOINT',
+        'api/widget/loader',
+    )
+    settings.UNIBOT_STATIC_ENDPOINT = settings.ENV_TOKENS.get(
+        'UNIBOT_STATIC_ENDPOINT',
+        'widget',
+    )

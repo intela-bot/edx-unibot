@@ -351,3 +351,56 @@ class UniBotCourseWidgetControlClient(UniBotBaseApiClient):
         """
         url = urljoin(self.base_url, settings.UNIBOT_RESET_COURSE_WIDGET_ENDPOINT.format(course_id=course_id))
         return self.post(url, user=user)
+
+
+class UniBotWidgetClient(UniBotBaseApiClient):
+    """
+    UniBot widget API client.
+
+    Handles proxy requests to UniBot widget endpoint.
+    """
+
+    def send_widget_request(
+        self,
+        request_data: dict,
+        user: Union[User, AnonymousUser],
+        headers: Optional[dict] = None,
+    ) -> requests.models.Response:
+        """
+        Send widget request to UniBot backend.
+
+        Proxies the request data as-is to the backend.
+        Supports both streaming and regular JSON responses.
+        """
+        url = urljoin(self.base_url, settings.UNIBOT_WIDGET_ENDPOINT)
+
+        return self.post(
+            url,
+            json=request_data,
+            user=user,
+            headers=headers,
+            stream=True,
+            timeout=300,
+        )
+
+    def send_static_request(
+        self,
+        user: Union[User, AnonymousUser],
+        filename: str,
+    ) -> requests.models.Response:
+        """
+        Return static JavaScript file from the backend.
+        """
+        url = urljoin(self.base_url, f"{settings.UNIBOT_STATIC_ENDPOINT}/{filename}")
+        return self.get(url, user=user)
+
+    def send_loader_request(
+        self,
+        request_data: dict,
+        user: Union[User, AnonymousUser],
+    ) -> requests.models.Response:
+        """
+        Send loader request to UniBot backend.
+        """
+        url = urljoin(self.base_url, settings.UNIBOT_LOADER_ENDPOINT)
+        return self.post(url, json=request_data, user=user)

@@ -12,3 +12,21 @@ from uni_bot.api.views.teacher_assistant_settings import (
     TeacherAssistantSettingsView,
     TeacherAssistantSettingsAvatarView,
 )
+
+from uni_bot.api.views.widget import WidgetView, WidgetLoaderView, WidgetStaticView
+
+__all__ = [
+    'AdditionalContentViewSet',
+    'BotStatusView',
+    'CourseContextViewSet',
+    'CourseUsersView',
+    'UserCourseLocationView',
+    'CourseWidgetControlViewSet',
+    'ModelsViewSet',
+    'RestrictedQuestionViewSet',
+    'TeacherAssistantSettingsView',
+    'TeacherAssistantSettingsAvatarView',
+    'WidgetView',
+    'WidgetLoaderView',
+    'WidgetStaticView',
+]
