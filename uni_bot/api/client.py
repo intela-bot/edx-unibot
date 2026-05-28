@@ -282,6 +282,13 @@ class UniBotCourseContextClient(UniBotBaseApiClient):
         url = urljoin(self.base_url, settings.UNIBOT_COURSE_SIGNAL_ENDPOINT.format(course_id=course_id))
         return self.post(url, json=data, timeout=3)
 
+    def send_course_update_signal(self, course_id: str, data: dict) -> requests.models.Response:
+        """
+        Send the signal about the course content update.
+        """
+        url = urljoin(self.base_url, settings.UNIBOT_COURSE_SIGNAL_ENDPOINT.format(course_id=course_id))
+        return self.post(url, json=data, timeout=3)
+
 
 class UniBotStatusClient(UniBotBaseApiClient):
     """

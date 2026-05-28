@@ -9,12 +9,13 @@ from openedx_events.content_authoring.signals import COURSE_CREATED, XBLOCK_PUBL
 from uni_bot.constants import PUBLISHABLE_COURSE_STRUCTURE_BLOCK_TYPES
 from uni_bot.models import CourseMetadata
 from uni_bot.tasks import notify_bot_about_created_course as notify_bot_about_created_course_task
+from uni_bot.tasks import notify_bot_about_updated_course as notify_bot_about_updated_course_task
 
 
 @receiver(XBLOCK_PUBLISHED)
 def update_course_content_publishing_time(**kwargs) -> None:
     """
-    Save current timestamp as course last publishing time.
+    Save current timestamp as course last publishing time and notify a bot about the content update.
     """
     xblock_info = kwargs['xblock_info']
 
@@ -26,6 +27,8 @@ def update_course_content_publishing_time(**kwargs) -> None:
             course_key=course_key,
             defaults={'last_published': current_utc_timestamp_iso_format},
         )
+
+        notify_bot_about_updated_course_task.delay(str(course_key))
 
 
 @receiver(COURSE_CREATED)
